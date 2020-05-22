@@ -1,15 +1,15 @@
 from collections import defaultdict
 
-"""
-Given an array of size n, find the majority element. The majority element is the 
-element that appears more than ⌊ n/2 ⌋ times.
-
-You may assume that the array is non-empty and the majority element always exist
-in the array.
-"""
-
 
 def majorityElement(nums):
+    """
+    Given an array of size n, find the majority element. The majority element is the 
+    element that appears more than ⌊ n/2 ⌋ times.
+
+    You may assume that the array is non-empty and the majority element always exist
+    in the array.
+    """
+
     dic = defaultdict(int)
 
     for num in nums:
@@ -21,31 +21,30 @@ def majorityElement(nums):
             return num
 
 
-"""
-                                  GOOD
-
-Given an array nums, write a function to move all 0's to the end of it while 
-maintaining the relative order of the non-zero elements.
-
-Example Cases:
-
-Input: [0,1,0,3,12]
-Output: [1,3,12,0,0]
-0     i       j       n
-- - - - - - - - - - - 
-
-invariant:
-- everything between [0, i) to be a number != 0, in the order it presents itself
-in the original array
-- Everything between [i, j) is 0
-
-Everything after j is unknown. 
-Implied: j >= i
-
-"""
-
-
 def moveZeroes(nums):
+    """
+                                      GOOD
+
+    Given an array nums, write a function to move all 0's to the end of it while 
+    maintaining the relative order of the non-zero elements.
+
+    Example Cases:
+
+    Input: [0,1,0,3,12]
+    Output: [1,3,12,0,0]
+    0     i       j       n
+    - - - - - - - - - - - 
+
+    invariant:
+    - everything between [0, i) to be a number != 0, in the order it presents itself
+    in the original array
+    - Everything between [i, j) is 0
+
+    Everything after j is unknown. 
+    Implied: j >= i
+
+    """
+
     # initialize two pointers, i and j, to 0
     i = j = 0
 
@@ -64,20 +63,18 @@ def moveZeroes(nums):
     return nums
 
 
-"""
-Say you have an array prices for which the ith element is the price of a given 
-stock on day i.
-
-Design an algorithm to find the maximum profit. You may complete as many 
-transactions as you like (i.e., buy one and sell one share of the stock multiple 
-times).
-
-Note: You may not engage in multiple transactions at the same time (i.e., you 
-must sell the stock before you buy again).
-"""
-
-
 def bestTimeToBuyAndSellStock2(nums):
+    """
+    Say you have an array prices for which the ith element is the price of a given 
+    stock on day i.
+
+    Design an algorithm to find the maximum profit. You may complete as many 
+    transactions as you like (i.e., buy one and sell one share of the stock multiple 
+    times).
+
+    Note: You may not engage in multiple transactions at the same time (i.e., you 
+    must sell the stock before you buy again).
+    """
     profit = 0
     for i in range(len(nums) - 1):
         if nums[i] < nums[i+1]:
@@ -86,15 +83,13 @@ def bestTimeToBuyAndSellStock2(nums):
     return profit
 
 
-"""
-Given an array of integers, find if the array contains any duplicates.
-
-Your function should return true if any value appears at least twice in the 
-array, and it should return false if every element is distinct.
-"""
-
-
 def containsDuplicate(nums):
+    """
+    Given an array of integers, find if the array contains any duplicates.
+
+    Your function should return true if any value appears at least twice in the 
+    array, and it should return false if every element is distinct.
+    """
     seen = set()
 
     for num in nums:
@@ -108,6 +103,8 @@ def containsDuplicate(nums):
 
 def generatePascals(numRows):
     """
+                                    GOOD
+
     Given a non-negative integer numRows, generate the first `numRows` of Pascal's 
     triangle.
     """
