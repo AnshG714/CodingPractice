@@ -1,4 +1,5 @@
 from collections import defaultdict
+import math
 
 
 def majorityElement(nums):
@@ -128,3 +129,31 @@ def generatePascals(numRows):
             res.append(temp)
 
         return res
+
+
+def missingNumber(nums):
+    """
+    Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find 
+    the one that is missing from the array.
+    """
+
+    # idea: if all the numbers were included, the sum of the array would be n(n+1)/2
+    n = len(nums)
+    return n*(n+1)//2 - sum(nums)
+
+
+def maxSubarray(nums):
+    """
+    Given an integer array nums, find the contiguous subarray (containing at least 
+    one number) which has the largest sum and return its sum.
+    """
+    maxSum = -math.inf
+    currSum = 0
+    for num in nums:
+        currSum += num
+        maxSum = max(currSum, maxSum)
+
+        if currSum < 0:
+            currSum = 0
+
+    return maxSum
