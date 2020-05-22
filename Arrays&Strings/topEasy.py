@@ -104,3 +104,30 @@ def containsDuplicate(nums):
         seen.add(num)
 
     return False
+
+
+def generatePascals(numRows):
+    """
+    Given a non-negative integer numRows, generate the first `numRows` of Pascal's 
+    triangle.
+    """
+    if numRows == 0:
+        return []
+    elif numRows == 1:
+        return [[1]]
+    elif numRows == 2:
+        return [[1], [1, 1]]
+    else:
+        res = [[1], [1, 1]]
+        for i in range(3, numRows+1):
+            temp = [1]
+
+            for j in range(i-2):
+                newEl = res[-1][j] + res[-1][j+1]
+                temp.append(newEl)
+
+            temp.append(1)
+
+            res.append(temp)
+
+        return res
