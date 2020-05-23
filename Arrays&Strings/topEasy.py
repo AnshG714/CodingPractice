@@ -212,3 +212,28 @@ def twoSum(nums, target):
             return [mapping[num], mapping[otherNum]]
 
     return [-1, -1]
+
+
+def removeDupsFromSorted(nums):
+    """
+    Given a sorted array nums, remove the duplicates in-place such that each 
+    element appear only once and return the new length.
+
+    Do not allocate extra space for another array, you must do this by modifying 
+    the input array in-place with O(1) extra memory.
+
+    [1,1,2] -> [1, 2, rando element]
+    """
+
+    if nums == []:
+        return 0
+
+    slow = fast = 0
+    while fast < len(nums):
+        if nums[slow] == nums[fast]:
+            fast += 1
+        else:
+            slow += 1
+            nums[slow] = nums[fast]
+
+    return nums, (slow + 1)
