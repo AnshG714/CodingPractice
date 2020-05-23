@@ -131,6 +131,26 @@ def generatePascals(numRows):
         return res
 
 
+ # Recursive approach 
+def pascalsTriangle(numRows):
+    # print(newRow)
+    if numRows == 0:
+        return []
+    elif numRows == 1:
+        return [[1]]
+    elif numRows == 2:
+        return [[1], [1,1]]
+    else:
+        res = pascalsTriangle(numRows-1)
+        oldRow = res[-1]
+        newRow=[0] * numRows
+        newRow[0] = newRow[numRows-1] = 1
+        for i in range(1, numRows-1):
+            newRow[i] = oldRow[i-1] + oldRow[i]
+        res.append(newRow) # IMP" append doesnt return anything, this is why it wasn't working earlier.
+        return res
+
+
 def missingNumber(nums):
     """
     Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find 
