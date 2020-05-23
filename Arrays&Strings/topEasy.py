@@ -271,3 +271,46 @@ def addOne(nums):
         nums.insert(0, 1)
 
     return nums
+
+
+def mergeSortedArrays(arr1, m, arr2, n):
+    """
+    Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as 
+    one sorted array.
+
+    Note:
+
+    • The number of elements initialized in nums1 and nums2 are m and n 
+    respectively. \n
+    • You may assume that nums1 has enough space (size that is greater or equal to 
+    m + n) to hold additional elements from nums2.
+
+    m is the length of arr1, without the extra space. 
+    n is the length of arr2
+    """
+
+    p1 = m + n - 1
+    p2 = m - 1
+    p3 = n - 1
+
+    while p2 >= 0 and p3 >= 0:
+        if arr1[p2] > arr2[p3]:
+            arr1[p1] = arr1[p2]
+            p2 -= 1
+        else:
+            arr1[p1] = arr2[p3]
+            p3 -= 1
+
+        p1 -= 1
+
+    while p2 >= 0:
+        arr1[p1] = arr1[p2]
+        p1 -= 1
+        p2 -= 1
+
+    while p3 >= 0:
+        arr1[p1] = arr2[p3]
+        p1 -= 1
+        p3 -= 1
+
+    return arr1
