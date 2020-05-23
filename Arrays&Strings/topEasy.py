@@ -157,3 +157,37 @@ def maxSubarray(nums):
             currSum = 0
 
     return maxSum
+
+
+def bestTimeToBuyAndSellStock(nums):
+    """
+                                  GOOD: Review again. 
+
+    Say you have an array for which the ith element is the price of a given stock 
+    on day i.
+
+    If you were only permitted to complete at most one transaction (i.e., buy one 
+    and sell one share of the stock), design an algorithm to find the maximum 
+    profit.
+
+    Note that you cannot sell a stock before you buy one.
+
+    [1, 2, 3, 0, 7, 6, 2]
+    """
+
+    # idea: We want to maximize the difference between the 2 prices p[i], p[j],
+    # where j >= i
+
+    # we can do a one pass algorithm. Keep track of the minimum number. If we
+    # find a new minimum, store that minimum. Otherwise, compute new max profit
+
+    minPrice = math.inf
+    maxProfit = 0
+
+    for num in nums:
+        if num < minPrice:
+            minPrice = num
+        else:
+            maxProfit = max(maxProfit, num - minPrice)
+
+    return maxProfit
