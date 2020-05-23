@@ -216,6 +216,8 @@ def twoSum(nums, target):
 
 def removeDupsFromSorted(nums):
     """
+                              GOOD: REVIEW
+
     Given a sorted array nums, remove the duplicates in-place such that each 
     element appear only once and return the new length.
 
@@ -223,6 +225,11 @@ def removeDupsFromSorted(nums):
     the input array in-place with O(1) extra memory.
 
     [1,1,2] -> [1, 2, rando element]
+
+    invariant:
+    - [, slow] is unique
+    - (slow, fast] are all duplicates
+    - (fast, ...] are unknown. 
     """
 
     if nums == []:
@@ -237,3 +244,30 @@ def removeDupsFromSorted(nums):
             nums[slow] = nums[fast]
 
     return nums, (slow + 1)
+
+
+def addOne(nums):
+    """
+    Given a non-empty array of digits representing a non-negative integer, plus 
+    one to the integer.
+
+    The digits are stored such that the most significant digit is at the head of 
+    the list, and each element in the array contain a single digit.
+
+    You may assume the integer does not contain any leading zero, except the 
+    number 0 itself.
+    """
+
+    pointer = len(nums) - 1
+    carry = 1
+
+    while pointer >= 0:
+        newVal = nums[pointer] + carry
+        carry = newVal // 10
+        num[pointer] = newVal % 10
+        pointer -= 1
+
+    if carry != 0:
+        nums.insert(0, 1)
+
+    return nums
