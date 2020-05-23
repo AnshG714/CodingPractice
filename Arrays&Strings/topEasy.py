@@ -191,3 +191,24 @@ def bestTimeToBuyAndSellStock(nums):
             maxProfit = max(maxProfit, num - minPrice)
 
     return maxProfit
+
+
+def twoSum(nums, target):
+    """
+    Given an array of integers, return indices of the two numbers such that they 
+    add up to a specific target.
+
+    You may assume that each input would have exactly one solution, and you may 
+    not use the same element twice.
+    """
+
+    mapping = defaultdict(int)
+    for index, value in enumerate(nums):
+        mapping[value] = index
+
+    for num in nums:
+        otherNum = target - num
+        if otherNum in mapping and mapping[otherNum] != mapping[num]:
+            return [mapping[num], mapping[otherNum]]
+
+    return [-1, -1]
