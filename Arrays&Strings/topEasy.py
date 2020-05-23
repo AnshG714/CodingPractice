@@ -264,7 +264,7 @@ def addOne(nums):
     while pointer >= 0:
         newVal = nums[pointer] + carry
         carry = newVal // 10
-        num[pointer] = newVal % 10
+        nums[pointer] = newVal % 10
         pointer -= 1
 
     if carry != 0:
