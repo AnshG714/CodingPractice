@@ -3,18 +3,22 @@ class LinkedListNode:
         self.val = val
         self.next = None
 
-    def arrayToList(self, arr):
-        dummy = LinkedListNode(-1)
-        curr = dummy
-        for element in arr:
-            newNode = LinkedListNode(element)
-            curr.next = newNode
-            curr = newNode
 
-        return dummy.next
+def arrayToList(arr):
+    dummy = LinkedListNode(-1)
+    curr = dummy
+    for element in arr:
+        newNode = LinkedListNode(element)
+        curr.next = newNode
+        curr = newNode
 
-    def printLinkedList(self, head):
-        res = ""
-        while head != None:
-            res += str(head.val) + " -> "
-            head = head.next
+    return dummy.next
+
+
+def printLinkedList(head):
+    res = ""
+    while head != None:
+        res += str(head.val) + " -> "
+        head = head.next
+
+    print(res)
