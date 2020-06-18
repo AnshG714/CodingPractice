@@ -56,13 +56,13 @@ def mergeTwoSortedLL(head1, head2):
 
     while head1 != None:
         nextNode = LinkedListNode(head1.val)
-        head1 = head1.val
+        head1 = head1.next
         curr.next = nextNode
         curr = nextNode
 
     while head2 != None:
         nextNode = LinkedListNode(head2.val)
-        head2 = head2.val
+        head2 = head2.next
         curr.next = nextNode
         curr = nextNode
 
