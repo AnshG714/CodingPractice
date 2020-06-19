@@ -20,5 +20,5 @@ def printLinkedList(head):
     while head != None:
         res += str(head.val) + " -> "
         head = head.next
-
+    res += 'NULL'
     print(res)
