@@ -1,4 +1,10 @@
 {
   "python.pythonPath": "/Applications/anaconda3/bin/python",
-  "python.autoComplete.extraPaths": ["./Arrays", "./LinkedLists", "./Strings"]
+  "python.autoComplete.extraPaths": [
+    "./Arrays",
+    "./LinkedLists",
+    "./Strings",
+    "./Stacks"
+  ],
+  "python.formatting.autopep8Args": ["--ignore", "E402"]
 }
