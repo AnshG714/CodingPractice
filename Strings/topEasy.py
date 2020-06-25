@@ -67,12 +67,12 @@ def romanToInt(s):
 
     i = 0
     while i < n:
-        if i == n-1:
+        if i == n - 1:
             count += mapping[s[i]]
             i += 1
         else:
-            if mapping[s[i]] < mapping[s[i+1]]:
-                count += mapping[s[i+1]] - mapping[s[i]]
+            if mapping[s[i]] < mapping[s[i + 1]]:
+                count += mapping[s[i + 1]] - mapping[s[i]]
                 i += 2
             else:
                 count += mapping[s[i]]
@@ -126,7 +126,7 @@ def countAndSay(n):
     prevMember = countAndSay(n - 1)
 
     # 2nd entry: "11"
-    print(n-1, ": ", prevMember)
+    print(n - 1, ": ", prevMember)
     curr = prevMember[0]  # "" prevMember[0]  # curr = "1"
     res = ""
     i = 1
@@ -136,7 +136,7 @@ def countAndSay(n):
         if curr == prevMember[i]:
             currCount += 1
         else:
-            res += str(currCount) + prevMember[i-1]
+            res += str(currCount) + prevMember[i - 1]
             curr = prevMember[i]
             currCount = 1
 
@@ -241,9 +241,75 @@ def strStr(haystack, needle):
     h_pointer = 0
     n = len(needle)
     while h_pointer + n <= len(haystack):
-        if haystack[h_pointer:h_pointer+n] == needle:
+        if haystack[h_pointer:h_pointer + n] == needle:
             return h_pointer
 
         h_pointer += 1
 
     return -1
+
+
+def canFormPalindrome(s):
+    """
+    Given a string, determine if a permutation of the string could form a palindrome.
+
+    For example,
+    "code" -> False, "aab" -> True, "carerac" -> True.
+    """
+
+    countMap = defaultdict(int)
+    for c in s:
+        countMap[c] += 1
+
+    oddFound = False
+    for c in s:
+        if countMap[c] % 2 == 1:
+            if oddFound:
+                return False
+            oddFound = True
+
+    return True
+
+
+def excelSheetNumber(s):
+    """
+    Given a column title as appear in an Excel sheet, return its corresponding column number.
+
+    For example:
+
+        A -> 1
+        B -> 2
+        C -> 3
+        ...
+        Z -> 26
+        AA -> 27
+        AB -> 28 
+    """
+
+    def findLetterPos(char):
+        return ord(char) - ord('A') + 1
+
+    tile = 0
+    n = len(s)
+    for i in range(n):
+        # This is needed to 'shift' by the total number of letters.
+        title = tile * 26
+        # Analogy: Similar to how powers of 10 work.
+        tile += findLetterPos(s[i])
+
+    return tile
+
+
+def excelSheetColumn(num):
+    """ opposite of above"""
+
+    alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    res = ""
+    while num:
+        last = num % 26
+        res = alpha[last - 1] + res
+        num //= 26
+        if last == 0:
+            num -= 1
+
+    return res
