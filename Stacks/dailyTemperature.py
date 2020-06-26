@@ -49,3 +49,42 @@ def dailyTemperature(temps):
         p -= 1
 
     return res
+
+
+def nextGreaterNumber(nums1, nums2):
+    """
+    You are given two arrays (without duplicates) nums1 and nums2 where nums1’s 
+    elements are subset of nums2. Find all the next greater numbers for nums1's 
+    elements in the corresponding places of nums2.
+
+    The Next Greater Number of a number x in nums1 is the first greater number to 
+    its right in nums2. If it does not exist, output -1 for this number.
+
+    Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+    Output: [-1,3,-1]
+
+    Input: nums1 = [2,4], nums2 = [1,2,3,4].
+    Output: [3,-1]
+    """
+    nxt = {}
+    stack = []
+
+    p = len(nums2) - 1
+    while p >= 0:
+
+        while stack and stack[-1] <= nums2[p]:
+            stack.pop()
+
+        if stack:
+            nxt[nums2[p]] = stack[-1]
+        else:
+            nxt[nums2[p]] = -1
+
+        stack.append(nums2[p])
+        p -= 1
+
+    res = []
+    for num in nums1:
+        res.append(nxt[num])
+
+    return res
