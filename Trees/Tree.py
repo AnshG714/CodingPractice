@@ -24,7 +24,6 @@ def treeFromArray(arr):
     queue = deque()
     root = TreeNode(arr[0])
     queue.append(root)
-    level = 1
 
     while i < len(arr):
         top = queue.popleft()
