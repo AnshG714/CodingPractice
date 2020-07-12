@@ -51,6 +51,26 @@ def dailyTemperature(temps):
     return res
 
 
+def dailyTemperatureReversed(temps):
+    """
+    Same as above, except with forward traversal of the list
+    """
+
+    s = Stack()
+    res = [0] * len(temps)
+    p = 0
+    while p < len(temps):
+        currTemp = temps[p]
+        while not s.isEmpty() and s.peek()[0] <= currTemp:
+            _, index = s.pop()
+            res[index] = p - index
+
+        s.push((temps[p], p))
+        p += 1
+
+    return res
+
+
 def nextGreaterNumber(nums1, nums2):
     """
     You are given two arrays (without duplicates) nums1 and nums2 where nums1’s 
