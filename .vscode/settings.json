@@ -5,7 +5,8 @@
     "./LinkedLists",
     "./Strings",
     "./Stacks",
-    "./Trees"
+    "./Trees",
+    "./Graphs"
   ],
   "python.formatting.autopep8Args": ["--ignore", "E402"]
 }
