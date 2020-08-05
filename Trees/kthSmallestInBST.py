@@ -23,7 +23,7 @@ def kthSmallestHelper(root, k, i):
     if not root:
         return -math.inf, i
 
-    val, leftI = kthSmallestHelper(root.left, k, i)
+    val, i = kthSmallestHelper(root.left, k, i)
     if val != -math.inf:
         return val, i
 
