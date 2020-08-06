@@ -19,21 +19,21 @@ def inorder(root):
 #### Let's try to do it without storing intermediate results in an array ######
 
 
-def kthSmallestHelper(root, k, i):
+def kthSmallestHelper(root, nums, k):
     if not root:
-        return -math.inf, i
+        return
 
-    val, i = kthSmallestHelper(root.left, k, i)
-    if val != -math.inf:
-        return val, i
+    kthSmallestHelper(root.left, nums, k)
+    nums[0] += 1
 
-    i += 1
+    if nums[0] == k:
+        nums[1] = root.val
+        return
 
-    if i == k:
-        return root.val, i
-
-    return kthSmallestHelper(root.right, k, i)
+    kthSmallestHelper(root.right, nums, k)
 
 
 def kthSmallestConstantSpace(root, k):
-    return kthSmallestHelper(root, k, 0)[0]
+    nums = [0, 0]
+    kthSmallestHelper(root, nums, k)
+    return nums[1]
