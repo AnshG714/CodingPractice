@@ -8,6 +8,9 @@ class Graph:
     def addEdge(self, u, v):
         self.graph[u].append(v)
 
+    def getNeighbors(self, node):
+        return self.graph[u]
+
     def __str__(self):
         res = ""
         for k in self.graph.keys():
