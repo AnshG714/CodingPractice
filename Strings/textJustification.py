@@ -82,7 +82,6 @@ def textJustification(words, maxWidth):
             temp.append(word)
             currWordLen += len(word) + 1
 
-    print(lines)
     res = []
     numLines = len(lines)
     for index, line in enumerate(lines):
