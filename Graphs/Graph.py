@@ -9,7 +9,7 @@ class Graph:
         self.graph[u].append(v)
 
     def getNeighbors(self, node):
-        return self.graph[u]
+        return self.graph[node]
 
     def __str__(self):
         res = ""
