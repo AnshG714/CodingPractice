@@ -41,14 +41,14 @@ class BondCalc:
             interestExpense = self.carryingValue * self.i
             if self.isPremium:
                 print("Interest Expense \t" + str(interestExpense))
-                print("\nBond Premium \t" + str(self.A - interestExpense))
-                print("\n\t\t\t Cash\t" + str(self.A))
+                print("Bond Premium \t" + str(self.A - interestExpense))
+                print("\t\t\t Cash\t" + str(self.A))
                 self.carryingValue -= self.A - interestExpense
             else:
                 print("Interest Expense \t" + str(interestExpense))
-                print("\n\t\t\t Bond Discount \t" +
+                print("\t\t\t Bond Discount \t" +
                       str(interestExpense - self.A))
-                print("\n\t\t\t Cash\t" + str(self.A))
+                print("\t\t\t Cash\t" + str(self.A))
                 self.carryingValue += interestExpense - self.A
             print("\n")
 
