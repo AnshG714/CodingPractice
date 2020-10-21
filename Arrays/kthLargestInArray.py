@@ -18,6 +18,13 @@ def kthSmallestInArray(nums, k):
     return -1
 
 
+"""
+[ ??? |V|]
+[ | < V| |V| |>= V| ]
+??? <V V  >= V
+"""
+
+
 def partition(nums, left, right):
     pivot = random.randint(left, right)
     nums[pivot], nums[right] = nums[right], nums[pivot]
