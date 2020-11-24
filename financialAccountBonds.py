@@ -53,5 +53,5 @@ class BondCalc:
             print("\n")
 
 
-b = BondCalc(10000000, 4.5, 4.8, 10)
+b = BondCalc(10000000, 8, 7.70, 5)
 b.getNInterests(2)
